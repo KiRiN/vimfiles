@@ -45,9 +45,12 @@ NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 "NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 "NeoBundle 'git://github.com/Shougo/vimfiler.git'
-"NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+
+" vimproc need to make
+NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/vimshell.git'
 
 "NeoBundle 'thinca/vim-ref'
 "NeoBundle 'thinca/vim-ambicmd'
@@ -159,7 +162,7 @@ let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 "Snippets dir
-let g:neocomplcache_snippets_dir = '~/.vim/snippets'
+let g:neocomplcache_snippets_dir = expand('~/.vim/snippets')
 
 
 "------------------------------
