@@ -1,13 +1,31 @@
+" syntax
 syntax on
+" indent
 set autoindent
 set smartindent
 set shiftwidth=4
 set tabstop=4
 set expandtab
 
+" modeline
+set modeline
+set modelines=5
+
 set number
 set hlsearch
 
+" fold method
+set foldmethod=marker
+
+"------------------------------
+" key map
+"------------------------------
+nnoremap <Space>x :QuickRun cpp-procon
+nnoremap <Space>es :NeoComplCacheEditSnippets
+
+"------------------------------
+" command
+"------------------------------
 
 "------------------------------
 " neobundle
@@ -140,10 +158,32 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
+"Snippets dir
+let g:neocomplcache_snippets_dir = '~/.vim/snippets'
+
 
 "------------------------------
 " clang_complete
 "------------------------------
 "let g:neocomplcache_clang_use_library = 1
 
+"------------------------------
+" quickrun
+"------------------------------
+
+"------------------------------
+" others
+"------------------------------
+
+
+"------------------------------
+" procon
+"------------------------------
+let g:quickrun_config = {
+\ 'cpp-procon': {
+\   'type': 'cpp',
+\   'command': 'g++',
+\   'cmdopt': '-lgtest',
+\ },
+\}
 

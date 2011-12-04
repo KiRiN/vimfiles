@@ -1,0 +1,106 @@
+#----------------------------------------
+# googletest
+#----------------------------------------
+snippet     TEST
+abbr        TEST <gtest>
+prev_word   '^'
+    TEST(${1:TestGroup}, ${2:TestName}) {
+        ${0:body}
+    }
+
+snippet test
+abbr test
+prev_word '^'
+ test${1:condition}snippet
+
+snippet     EXPECT_TRUE
+abbr        EXPECT_TRUE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_TRUE(${1});
+
+snippet     EXPECT_FALSE 
+abbr        EXPECT_FALSE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_FALSE(${1});
+
+snippet     EXPECT_EQ
+abbr        EXPECT_EQ <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_EQ(${1}, ${2});
+
+snippet     EXPECT_NE
+abbr        EXPECT_NE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_NE(${1}, ${2});
+
+snippet     EXPECT_LT
+abbr        EXPECT_LT <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_LT(${1}, ${2});
+
+snippet     EXPECT_LE
+abbr        EXPECT_LE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_LE(${1}, ${2});
+
+snippet     EXPECT_GT
+abbr        EXPECT_GT <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_GT(${1}, ${2});
+
+snippet     EXPECT_GE
+abbr        EXPECT_GE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_GE(${1}, ${2});
+
+snippet     EXPECT_STREQ
+abbr        EXPECT_STREQ <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_STREQ(${1}, ${2});
+
+snippet     EXPECT_STRNE
+abbr        EXPECT_STRNE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_STRNE(${1}, ${2});
+
+snippet     EXPECT_STRCASEEQ
+abbr        EXPECT_STRCASEEQ <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_STRCASEEQ(${1}, ${2});
+
+snippet     EXPECT_STRCASENE
+abbr        EXPECT_STRCASENE <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_STRCASENE(${1}, ${2});
+
+snippet     EXPECT_FLOAT_EQ
+abbr        EXPECT_FLOAT_EQ <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_FLOAT_EQ(${1}, ${2});
+
+snippet     EXPECT_DOUBLE_EQ
+abbr        EXPECT_DOUBLE_EQ <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_DOUBLE_EQ
+
+snippet     EXPECT_NEAR
+abbr        EXPECT_NEAR <gtest>
+alias       EX, EXPECT
+prev_word   '^'
+    EXPECT_NEAR(${1}, ${2});
+
+
