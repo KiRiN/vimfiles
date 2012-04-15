@@ -1,1 +1,14 @@
-.vim/.*
+# ignore all
+/*
+/.*
+
+# .vimrc
+!/.vimrc
+# .vim without dotfiles for vim
+!/.vim
+/.vim/.*
+
+# settings for git
+!/.gitignore
+!/.gitconfig
+!/.gitmodules
