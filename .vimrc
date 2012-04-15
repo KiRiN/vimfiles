@@ -102,6 +102,9 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/walm/jshint.vim.git'
 
+" original scala tool is git://github.com/scala/scala-dist.git
+NeoBundle 'git://github.com/marcw/vim-scala.git'
+
 " vimproc need to make
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
