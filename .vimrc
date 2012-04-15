@@ -1,5 +1,9 @@
+" no compatible
+set nocompatible
+
 " syntax
 syntax on
+
 " indent
 set autoindent
 set smartindent
@@ -7,31 +11,79 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 
+" search
+set ignorecase
+set smartcase
+set wrapscan
+set noincsearch
+set hlsearch
+
+" fold
+set foldmethod=marker
+
 " modeline
 set modeline
 set modelines=5
 
-set number
-set hlsearch
+" clipboard
+set clipboard+=unnamed
 
-" fold method
-set foldmethod=marker
+" move
+set whichwrap=b,s,h,l,<,>,[,],~
+
+" display
+"colorscheme desert
+set number
+set showmatch
+"set list
+"set listchars=eol:$,tab:>\ ,extends:<
+
+"""""""""""""""""""""この辺の設定をちゃんとやる
+"------------------------------
+" status line
+"------------------------------
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+"set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
+augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE guifg=#ccdc90 guibg=#2E4340 ctermfg=black ctermbg=yellow
+    autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
+augroup END
+highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
+
+"------------------------------
+" popup
+"------------------------------
+highlight Pmenu guibg=#666666 ctermbg=blue
+highlight PmenuSel guibg=#8cd0d3 guifg=#666666 ctermbg=red
+highlight PmenuSbar guibg=#8cd0d3 guifg=#666666 ctermbg=black
 
 "------------------------------
 " key map
 "------------------------------
-nnoremap <Space>x :QuickRun cpp-procon
-nnoremap <Space>es :NeoComplCacheEditSnippets
+nnoremap <Space>x :QuickRun cpp-procon<Space>
+nnoremap <Space>es :NeoComplCacheEditSnippets<Space>
+nnoremap <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
+nnoremap <Space>u :Unite<Space>
 
 "------------------------------
 " command
 "------------------------------
+nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+"------------------------------
+" character code
+" quoted from
+" http://www.kawaz.jp/pukiwiki/?vim
+"------------------------------
+"""""""""""""""""""""この辺の設定をちゃんとやる
+
 
 "------------------------------
 " neobundle
 "------------------------------
-set nocompatible
-filetype off
+filetype plugin indent off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/neobundle.vim.git/
@@ -42,7 +94,7 @@ NeoBundle 'git://github.com/Shougo/clang_complete.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-"NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 "NeoBundle 'git://github.com/Shougo/vimfiler.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
@@ -51,6 +103,7 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 " vimproc need to make
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 
 "NeoBundle 'thinca/vim-ref'
 "NeoBundle 'thinca/vim-ambicmd'
@@ -81,8 +134,11 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'https://github.com/mattn/webapi-vim.git'
 "NeoBundle 'https://github.com/t9md/vim-textmanip.git'
 
-filetype plugin on
-filetype indent on
+NeoBundle 'project.tar.gz'
+
+"NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+
+filetype plugin indent on
 
 "------------------------------
 " neocomplcache
@@ -174,10 +230,22 @@ let g:neocomplcache_snippets_dir = expand('~/.vim/snippets')
 " quickrun
 "------------------------------
 
+"""""""""""""""""""""この辺の設定をちゃんとやる
+"------------------------------
+" project.vim
+"------------------------------
+"function! :openproject()
+"    if getcwd() != $HOME
+"        if filereadable(getcwd() . '/.vimprojects')
+"            Project .vimprojects
+"        endif
+"    endif
+"endfunction
+"autocmd BufRead * openproject
+
 "------------------------------
 " others
 "------------------------------
-
 
 "------------------------------
 " procon
@@ -189,4 +257,20 @@ let g:quickrun_config = {
 \   'cmdopt': '-lgtest',
 \ },
 \}
+
+"------------------------------
+" 入れたいもの 
+"------------------------------
+" バッファ一覧表示、管理
+" クリップボード共有
+" 文字コード
+" manga_osyoさんの記事を参考にしてソースコード上にシンタックスチェックを表示
+" eregex
+" yankring
+" Pyclewn
+" irc
+" twitter
+" tab環境
+" uniteのソースつくりたいngcore, nggo, twitterTL
+
 
