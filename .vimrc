@@ -99,11 +99,13 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vimfiler.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+NeoBundle 'git://github.com/walm/jshint.vim.git'
 
 " vimproc need to make
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
-NeoBundle 'git://github.com/tpope/vim-fugitive.git'
+
 
 "NeoBundle 'thinca/vim-ref'
 "NeoBundle 'thinca/vim-ambicmd'
