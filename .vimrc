@@ -98,6 +98,7 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/walm/jshint.vim.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'
@@ -232,6 +233,13 @@ let g:neocomplcache_snippets_dir = expand('~/.vim/snippets')
 "------------------------------
 " quickrun
 "------------------------------
+
+"------------------------------
+" openbrowser
+"------------------------------
+nmap <Leader>w <Plug>(openbrowser-smart-search)
+vmap <Leader>w <Plug>(openbrowser-smart-search)
+
 
 """""""""""""""""""""この辺の設定をちゃんとやる
 "------------------------------
