@@ -1,9 +1,6 @@
 " no compatible
 set nocompatible
 
-" syntax
-syntax on
-
 " indent
 set autoindent
 set smartindent
@@ -143,6 +140,7 @@ NeoBundle 'project.tar.gz'
 
 "NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 
+syntax on
 filetype plugin indent on
 
 "------------------------------
