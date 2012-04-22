@@ -44,10 +44,10 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 "set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
 augroup InsertHook
     autocmd!
+    "autocmd BufEnter highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
     autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE guifg=#ccdc90 guibg=#2E4340 ctermfg=black ctermbg=yellow
     autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
 augroup END
-highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
 
 "------------------------------
 " popup
