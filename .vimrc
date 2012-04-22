@@ -97,8 +97,10 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
-NeoBundle 'git://github.com/walm/jshint.vim.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+
+NeoBundle 'git://github.com/walm/jshint.vim.git'
+"NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'
@@ -106,7 +108,6 @@ NeoBundle 'git://github.com/marcw/vim-scala.git'
 " vimproc need to make
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
-
 
 "NeoBundle 'thinca/vim-ref'
 "NeoBundle 'thinca/vim-ambicmd'
@@ -122,8 +123,6 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'tpope/vim-pathogen'
 "NeoBundle 'bkad/CamelCaseMotion'
 "
-"NeoBundle 'https://github.com/tyru/open-browser.vim.git'
-"
 "NeoBundle 'https://github.com/thinca/vim-tabrecent.git'
 "NeoBundle 'https://github.com/mrtazz/simplenote.vim.git'
 "オンラインノートsimplenoteを使う
@@ -138,8 +137,11 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'https://github.com/t9md/vim-textmanip.git'
 
 NeoBundle 'project.tar.gz'
+NeoBundle 'Color-Sampler-Pack'
+NeoBundle 'taglist.vim'
 
-"NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+" Unite
+NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
 
 syntax on
 filetype plugin indent on
