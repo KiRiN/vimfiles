@@ -98,6 +98,7 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 
 NeoBundle 'git://github.com/walm/jshint.vim.git'
 "NeoBundle 'git://github.com/hallettj/jslint.vim.git'
