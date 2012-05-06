@@ -19,8 +19,8 @@ if [ -e ~/.vimrc ]; then
 fi
 
 # make symlink
-ln -s $DIR/.vim ~/.vim
-ln -s $DIR/.vimrc ~/.vimrc
+ln -s $FULL_DIR/.vim ~/.vim
+ln -s $FULL_DIR/.vimrc ~/.vimrc
 echo ~/.vim created successfully
 echo ~/.vimrc created successfully
 
