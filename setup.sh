@@ -1,6 +1,10 @@
 #!/bin/sh
 
-DIR=${0%/*}
+# get directory full path
+REL_DIR=`dirname $0`
+cd $REL_DIR
+FULL_DIR=`pwd`
+cd - > /dev/null
 
 # check ~/.vim
 if [ -e ~/.vim ]; then
