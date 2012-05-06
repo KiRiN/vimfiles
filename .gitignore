@@ -8,7 +8,11 @@
 !/.vim
 /.vim/.*
 
+# setup script
+!/setup.sh
+
 # settings for git
 !/.gitignore
 !/.gitconfig
 !/.gitmodules
+
