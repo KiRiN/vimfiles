@@ -63,6 +63,7 @@ nnoremap <Space>x :QuickRun cpp-procon<Space>
 nnoremap <Space>es :NeoComplCacheEditSnippets<Space>
 nnoremap <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
 nnoremap <Space>u :Unite<Space>
+nnoremap <silent> <Space>rc :tabnew<Space>~/.vimrc<CR>
 
 "------------------------------
 " command
@@ -87,6 +88,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/.bundle'))
 endif
 
+NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
 NeoBundle 'git://github.com/Shougo/clang_complete.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -236,6 +238,7 @@ let g:neocomplcache_snippets_dir = expand('~/.vim/snippets')
 "------------------------------
 " quickrun
 "------------------------------
+let g:quickrun_config = {}
 
 "------------------------------
 " openbrowser
@@ -262,14 +265,12 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 "------------------------------
 
 "------------------------------
-" procon
+" procon <quickrun>
 "------------------------------
-let g:quickrun_config = {
-\ 'cpp-procon': {
+let g:quickrun_config['cpp-procon'] = {
 \   'type': 'cpp',
 \   'command': 'g++',
 \   'cmdopt': '-lgtest',
-\ },
 \}
 
 "------------------------------
