@@ -98,4 +98,10 @@ alias       EX, EXPECT
 prev_word   '^'
     EXPECT_NEAR(${1}, ${2});
 
+snippet     CUT
+abbr        BEGIN/END CUT HERE <TopCoder>
+prev_word   '^'
+    // BEGIN CUT HERE
+    ${0}
+    // END CUT HERE
 
