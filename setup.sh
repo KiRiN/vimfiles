@@ -16,11 +16,19 @@ if [ -e ~/.vimrc ]; then
     exit 2
 fi
 
+# check ~/.gvimrc
+if [ -e ~/.gvimrc ]; then
+    echo ~/.gvimrc already exists
+    exit 3
+fi
+
 # make symlinks
 ln -s $DIR/.vim ~/.vim
 ln -s $DIR/.vimrc ~/.vimrc
+ln -s $DIR/.gvimrc ~/.gvimrc
 echo ~/.vim created successfully
 echo ~/.vimrc created successfully
+echo ~/.gvimrc created successfully
 
 # git submodule
 git submodule init

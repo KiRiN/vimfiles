@@ -102,8 +102,8 @@ NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 
+"jslint is 'git://github.com/hallettj/jslint.vim.git'
 NeoBundle 'git://github.com/walm/jshint.vim.git'
-"NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'
@@ -122,7 +122,6 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'kana/vim-smartchr'
 "NeoBundle 'ujihisa/vital.vim'
 "NeoBundle 'tsukkee/lingr-vim'
-"NeoBundle 'tpope/vim-fugitive'
 "NeoBundle 'tpope/vim-pathogen'
 "NeoBundle 'bkad/CamelCaseMotion'
 "
