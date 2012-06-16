@@ -29,46 +29,23 @@ set clipboard+=unnamed
 set whichwrap=b,s,h,l,<,>,[,],~
 
 " display
-"colorscheme desert
 set number
 set showmatch
 "set list
 "set listchars=eol:$,tab:>\ ,extends:<
 
-"""""""""""""""""""""この辺の設定をちゃんとやる
-"------------------------------
-" status line
-"------------------------------
-set laststatus=2
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-"set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
-augroup InsertHook
-    autocmd!
-    "autocmd BufEnter highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
-    autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE guifg=#ccdc90 guibg=#2E4340 ctermfg=black ctermbg=yellow
-    autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
-augroup END
-
-"------------------------------
-" popup
-"------------------------------
-highlight Pmenu guibg=#666666 ctermbg=blue
-highlight PmenuSel guibg=#8cd0d3 guifg=#666666 ctermbg=red
-highlight PmenuSbar guibg=#8cd0d3 guifg=#666666 ctermbg=black
-
 "------------------------------
 " key map
 "------------------------------
-nnoremap <Space>x :QuickRun cpp-procon<Space>
-nnoremap <Space>es :NeoComplCacheEditSnippets<Space>
-nnoremap <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
-nnoremap <Space>u :Unite<Space>
-nnoremap <silent> <Space>rc :tabnew<Space>~/.vimrc<CR>
-
-"------------------------------
-" command
-"------------------------------
-nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap          <Space>x   :QuickRun cpp-procon<Space>
+nnoremap          <Space>es  :NeoComplCacheEditSnippets<Space>
+nnoremap          <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
+nnoremap          <Space>u   :Unite<Space>
+nnoremap          <Space>uf  :Unite<Space>file<Space>
+nnoremap <silent> <Space>vf  :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
+nnoremap <silent> <Space>rc  :tabnew<Space>~/.vimrc<CR>
+nnoremap <silent> <Space>grc :tabnew<Space>~/.gvimrc<CR>
+nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 
 "------------------------------
 " character code
@@ -95,7 +72,7 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
-"NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
@@ -138,7 +115,7 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'https://github.com/mattn/webapi-vim.git'
 "NeoBundle 'https://github.com/t9md/vim-textmanip.git'
 
-NeoBundle 'project.tar.gz'
+"NeoBundle 'project.tar.gz'
 NeoBundle 'Color-Sampler-Pack'
 NeoBundle 'taglist.vim'
 
@@ -147,6 +124,36 @@ NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
 
 syntax on
 filetype plugin indent on
+
+" colorscheme
+colorscheme oceanblack
+
+"""""""""""""""""""""この辺の設定をちゃんとやる
+"------------------------------
+" status line
+"------------------------------
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+"set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
+augroup InsertHook
+    autocmd!
+    "autocmd BufEnter highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
+    autocmd InsertEnter * highlight StatusLine term=NONE cterm=NONE guifg=#ccdc90 guibg=#2E4340 ctermfg=black ctermbg=yellow
+    autocmd InsertLeave * highlight StatusLine term=NONE cterm=NONE guifg=#2E4340 guibg=#ccdc90 ctermfg=white ctermbg=blue
+augroup END
+
+"------------------------------
+" popup
+"------------------------------
+highlight Pmenu guibg=#666666 ctermbg=blue
+highlight PmenuSel guibg=#8cd0d3 guifg=#666666 ctermbg=red
+highlight PmenuSbar guibg=#8cd0d3 guifg=#666666 ctermbg=black
+
+
+"------------------------------
+" language
+"------------------------------
+set helplang=en
 
 "------------------------------
 " neocomplcache
@@ -238,6 +245,12 @@ let g:neocomplcache_snippets_dir = expand('~/.vim/snippets')
 " quickrun
 "------------------------------
 let g:quickrun_config = {}
+" cpp-procon
+let g:quickrun_config['cpp-procon'] = {
+\   'type': 'cpp',
+\   'command': 'g++',
+\   'cmdopt': '-lgtest',
+\}
 
 "------------------------------
 " openbrowser
@@ -259,18 +272,6 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 "endfunction
 "autocmd BufRead * openproject
 
-"------------------------------
-" others
-"------------------------------
-
-"------------------------------
-" procon <quickrun>
-"------------------------------
-let g:quickrun_config['cpp-procon'] = {
-\   'type': 'cpp',
-\   'command': 'g++',
-\   'cmdopt': '-lgtest',
-\}
 
 "------------------------------
 " 入れたいもの 
@@ -281,8 +282,9 @@ let g:quickrun_config['cpp-procon'] = {
 " manga_osyoさんの記事を参考にしてソースコード上にシンタックスチェックを表示
 " eregex
 " yankring
-" Pyclewn
+" Pyclewn?
 " irc
+" API
 " twitter
 " tab環境
 " uniteのソースつくりたいngcore, nggo, twitterTL
