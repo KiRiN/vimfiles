@@ -37,6 +37,7 @@ set showmatch
 "------------------------------
 " key map
 "------------------------------
+"google testとしてcppのときには\tにマッピングするようにしちゃえばよさげ
 nnoremap          <Space>x   :QuickRun cpp-procon<Space>
 nnoremap          <Space>es  :NeoComplCacheEditSnippets<Space>
 nnoremap          <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
@@ -69,6 +70,7 @@ NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
 NeoBundle 'git://github.com/Shougo/clang_complete.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache-snippets-complete.git'
 NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
@@ -117,7 +119,8 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 
 "NeoBundle 'project.tar.gz'
 NeoBundle 'Color-Sampler-Pack'
-NeoBundle 'taglist.vim'
+"NeoBundle 'taglist.vim'
+NeoBundle 'git://github.com/majutsushi/tagbar.git'
 
 " Unite
 NeoBundle 'git://github.com/ujihisa/unite-colorscheme.git'
