@@ -11,8 +11,10 @@
 /.vim/bundle/*
 !/.vim/bundle/neobundle.vim*
 
-# setup script
+# make scripts
+!/Makefile
 !/setup.sh
+!/clean.sh
 
 # settings for git
 !/.gitignore
