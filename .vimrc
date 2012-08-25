@@ -62,17 +62,18 @@ nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 filetype plugin indent off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim.git/
-  call neobundle#rc(expand('~/.vim/.bundle'))
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
+NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
-NeoBundle 'git://github.com/Shougo/clang_complete.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache-clang.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache-snippets-complete.git'
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
+"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
@@ -81,9 +82,12 @@ NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
 
-"jslint is 'git://github.com/hallettj/jslint.vim.git'
+" js
+"NeoBundle 'git://github.com/hallettj/jslint.vim.git'
+" jshint must be installed
 NeoBundle 'git://github.com/walm/jshint.vim.git'
 
+" scala
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'
 
@@ -275,6 +279,10 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 "endfunction
 "autocmd BufRead * openproject
 
+"------------------------------
+" unite.vim
+"------------------------------
+let g:unite_enable_start_insert = 1
 
 "------------------------------
 " 入れたいもの 

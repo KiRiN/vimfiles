@@ -7,6 +7,9 @@
 # .vim without dotfiles for vim
 !/.vim
 /.vim/.*
+# neobundle
+/.vim/bundle/*
+!/.vim/bundle/neobundle.vim*
 
 # setup script
 !/setup.sh
