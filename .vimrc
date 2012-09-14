@@ -81,8 +81,10 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+NeoBundle 'thinca/vim-ref'
 
 " js
+"NeoBundle 'git://github.com/soh335/vim-ref-jquery.git'
 "NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 " jshint must be installed
 NeoBundle 'git://github.com/walm/jshint.vim.git'
@@ -95,7 +97,6 @@ NeoBundle 'git://github.com/marcw/vim-scala.git'
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
 
-"NeoBundle 'thinca/vim-ref'
 "NeoBundle 'thinca/vim-ambicmd'
 "NeoBundle 'anyakichi/vim-surround'
 "NeoBundle 'h1mesuke/unite-outline'
