@@ -27,6 +27,7 @@ set clipboard+=unnamed
 
 " move
 set whichwrap=b,s,h,l,<,>,[,],~
+set backspace=indent,eol,start
 
 " display
 set number
@@ -37,16 +38,49 @@ set showmatch
 "------------------------------
 " key map
 "------------------------------
+"基本的にカンマ+1文字でカテゴリわけるルール
 "google testとしてcppのときには\tにマッピングするようにしちゃえばよさげ
-nnoremap          <Space>x   :QuickRun cpp-procon<Space>
-nnoremap          <Space>es  :NeoComplCacheEditSnippets<Space>
-nnoremap          <Space>ers :NeoComplCacheEditRuntimeSnippets<Space>
-nnoremap          <Space>u   :Unite<Space>
-nnoremap          <Space>uf  :Unite<Space>file<Space>
-nnoremap <silent> <Space>vf  :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
-nnoremap <silent> <Space>rc  :tabnew<Space>~/.vimrc<CR>
-nnoremap <silent> <Space>grc :tabnew<Space>~/.gvimrc<CR>
+nnoremap <silent> ,x   :QuickRun cpp-procon<CR>
+nnoremap <silent> ,nes  :sp +NeoComplCacheEditSnippets<CR>
+nnoremap <silent> ,ners :sp +NeoComplCacheEditRuntimeSnippets<CR>
+nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>file<CR>
+nnoremap <silent> ,uf  :Unite<Space>file<CR>
+nnoremap <silent> ,ub  :Unite<Space>buffer<CR>
+nnoremap <silent> ,ur  :Unite<Space>register<CR>
+nnoremap <silent> ,tt  :TagbarToggle<CR>
+nnoremap <silent> ,ff  :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
+nnoremap <silent> ,ss  :SaveSession<CR>
+nnoremap <silent> ,sr  :RestoreSession<CR>
+nnoremap <silent> ,rc  :tabnew<Space>~/.vimrc<CR>
+nnoremap <silent> ,grc :tabnew<Space>~/.gvimrc<CR>
 nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+"------------------------------
+" Session
+"------------------------------
+function! s:restore_session_if_no_args()
+    if argc() == 0 && filereadable("Session.vim")
+        source Session.vim
+    endif
+endfunction
+
+"plugin開いてると復元時にエラーが出るのでとりあえずよく使うものを閉じる
+function! s:save_session_with_close_plugins()
+    execute 'TagbarClose'
+    execute 'VimFilerClose explorer'
+    execute 'UniteClose default'
+    mksession! Session.vim
+endfunction 
+
+command! RestoreSession call s:restore_session_if_no_args()
+command! SaveSession    call s:save_session_with_close_plugins()
+
+"完全自動保存にすると何かとじゃまだったりする
+"augroup AutoSessionManagement
+"  autocmd!
+"  autocmd VimEnter * nested execute 'RestoreSession'
+"  autocmd VimLeave * execute 'SaveSession'
+"augroup END
 
 "------------------------------
 " character code
@@ -284,6 +318,7 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 " unite.vim
 "------------------------------
 let g:unite_enable_start_insert = 1
+
 
 "------------------------------
 " 入れたいもの 
