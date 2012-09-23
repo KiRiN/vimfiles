@@ -122,6 +122,8 @@ NeoBundle 'thinca/vim-ref'
 "NeoBundle 'git://github.com/hallettj/jslint.vim.git'
 " jshint must be installed
 NeoBundle 'git://github.com/walm/jshint.vim.git'
+NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+NeoBundle  'JavaScript-syntax'
 
 " scala
 " original scala tool is git://github.com/scala/scala-dist.git
