@@ -65,6 +65,7 @@ function! s:restore_session_if_no_args()
 endfunction
 
 "plugin開いてると復元時にエラーが出るのでとりあえずよく使うものを閉じる
+"けど他タブとかで開いてると結局。。。
 function! s:save_session_with_close_plugins()
     execute 'TagbarClose'
     execute 'VimFilerClose explorer'
