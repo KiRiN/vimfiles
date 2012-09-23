@@ -43,7 +43,9 @@ set showmatch
 nnoremap <silent> ,x   :QuickRun cpp-procon<CR>
 nnoremap <silent> ,nes  :sp +NeoComplCacheEditSnippets<CR>
 nnoremap <silent> ,ners :sp +NeoComplCacheEditRuntimeSnippets<CR>
+nnoremap <silent> ,ncb  :NeoComplCacheCachingBuffer<CR>
 nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>file<CR>
+nnoremap <silent> ,ua  :Unite<Space>file_rec<CR>
 nnoremap <silent> ,uf  :Unite<Space>file<CR>
 nnoremap <silent> ,ub  :Unite<Space>buffer<CR>
 nnoremap <silent> ,ur  :Unite<Space>register<CR>
@@ -321,7 +323,15 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 " unite.vim
 "------------------------------
 let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_limit = 500
+call unite#custom_source('file_rec', 'max_candidates', 500)
 
+"------------------------------
+" load local setting
+"------------------------------
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
 
 "------------------------------
 " 入れたいもの 
@@ -336,7 +346,5 @@ let g:unite_enable_start_insert = 1
 " irc
 " API
 " twitter
-" tab環境
-" uniteのソースつくりたいngcore, nggo, twitterTL
 
 
