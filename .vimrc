@@ -128,6 +128,10 @@ NeoBundle 'git://github.com/walm/jshint.vim.git'
 NeoBundle 'git://github.com/pangloss/vim-javascript.git'
 NeoBundle  'JavaScript-syntax'
 
+" perl
+" perlomni does not need to make install ?
+"NeoBundle 'git://github.com/c9s/perlomni.vim.git'
+
 " scala
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'

@@ -6,6 +6,7 @@
 !/.vimrc
 # .vim without dotfiles for vim
 !/.vim
+/.vim/bin
 /.vim/.*
 # neobundle
 /.vim/bundle/*

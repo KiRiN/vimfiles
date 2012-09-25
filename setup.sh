@@ -34,6 +34,6 @@ echo ~/.gvimrc created successfully
 git submodule init
 git submodule update
 
-# make vimproc
-echo You should make vimproc for your environment!
-
+# others
+# make for vimproc
+# jshint should be installed for jshint
