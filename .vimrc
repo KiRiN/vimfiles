@@ -44,26 +44,33 @@ nnoremap <silent> ,x   :QuickRun cpp-procon<CR>
 nnoremap <silent> ,nes  :sp +NeoComplCacheEditSnippets<CR>
 nnoremap <silent> ,ners :sp +NeoComplCacheEditRuntimeSnippets<CR>
 nnoremap <silent> ,ncb  :NeoComplCacheCachingBuffer<CR>
-nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>file<CR>
+nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>directory_mru<Space>file<CR>
 nnoremap <silent> ,ua  :Unite<Space>file_rec<CR>
 nnoremap <silent> ,uf  :Unite<Space>file<CR>
 nnoremap <silent> ,ub  :Unite<Space>buffer<CR>
 nnoremap <silent> ,ur  :Unite<Space>register<CR>
 nnoremap <silent> ,tt  :TagbarToggle<CR>
 nnoremap <silent> ,ff  :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
+nnoremap <silent> ,f2  :VimFilerDouble<CR>
 nnoremap <silent> ,ss  :SaveSession<CR>
 nnoremap <silent> ,sr  :RestoreSession<CR>
 nnoremap <silent> ,rc  :tabnew<Space>~/.vimrc<CR>
 nnoremap <silent> ,grc :tabnew<Space>~/.gvimrc<CR>
+nnoremap <silent> ,lrc :tabnew<Space>~/.vimrc.local<CR>
+nnoremap <silent> ,rr  :!sudo /etc/init.d/httpd restart<CR>
+nnoremap <silent> ,dd  :VDBIDatasource<CR>
 nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+"------------------------------
+" grep
+"------------------------------
+set grepprg=grep\ -nH
 
 "------------------------------
 " Session
 "------------------------------
-function! s:restore_session_if_no_args()
-    if argc() == 0 && filereadable("Session.vim")
-        source Session.vim
-    endif
+function! s:restore_session()
+    source Session.vim
 endfunction
 
 "plugin開いてると復元時にエラーが出るのでとりあえずよく使うものを閉じる
@@ -75,7 +82,7 @@ function! s:save_session_with_close_plugins()
     mksession! Session.vim
 endfunction 
 
-command! RestoreSession call s:restore_session_if_no_args()
+command! RestoreSession call s:restore_session()
 command! SaveSession    call s:save_session_with_close_plugins()
 
 "完全自動保存にすると何かとじゃまだったりする
@@ -84,6 +91,19 @@ command! SaveSession    call s:save_session_with_close_plugins()
 "  autocmd VimEnter * nested execute 'RestoreSession'
 "  autocmd VimLeave * execute 'SaveSession'
 "augroup END
+
+
+"------------------------------
+" xls as csv (csv.vim, xls2csv, xlscat is required)
+"------------------------------
+augroup XlsAsCsv
+    autocmd!
+    autocmd BufReadPre *.xls set ro | setf csv
+    autocmd BufReadPost *.xls silent! %!xlscat "%"
+    autocmd BufReadPost *.xls %ArrangeColumn
+    autocmd BufReadPost *.xls redraw
+augroup END
+
 
 "------------------------------
 " character code
@@ -104,6 +124,7 @@ if has('vim_starting')
 endif
 
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
+NeoBundle 'git://github.com/vim-scripts/surround.vim.git'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
 NeoBundle 'git://github.com/Shougo/neocomplcache-clang.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
@@ -118,6 +139,8 @@ NeoBundle 'git://github.com/thinca/vim-quickrun.git'
 NeoBundle 'git://github.com/tpope/vim-fugitive.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/mattn/zencoding-vim.git'
+NeoBundle 'git://github.com/thinca/vim-qfreplace.git'
+NeoBundle 'git://github.com/mattn/webapi-vim.git'
 NeoBundle 'thinca/vim-ref'
 
 " js
@@ -136,6 +159,14 @@ NeoBundle  'JavaScript-syntax'
 " original scala tool is git://github.com/scala/scala-dist.git
 NeoBundle 'git://github.com/marcw/vim-scala.git'
 
+" csv
+NeoBundle 'git://github.com/vim-scripts/csv.vim.git'
+
+" dbi
+" webapi-vim required
+" perl Plack required
+NeoBundle 'git://github.com/mattn/vdbi-vim.git'
+
 " vimproc need to make
 NeoBundle 'git://github.com/Shougo/vimproc.git'
 NeoBundle 'git://github.com/Shougo/vimshell.git'
@@ -152,6 +183,12 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'tpope/vim-pathogen'
 "NeoBundle 'bkad/CamelCaseMotion'
 "
+"
+"sonictemplete-vim
+"CtrlP.vim
+"migemo
+"memolist.vim
+"
 "NeoBundle 'https://github.com/thinca/vim-tabrecent.git'
 "NeoBundle 'https://github.com/mrtazz/simplenote.vim.git'
 "オンラインノートsimplenoteを使う
@@ -162,7 +199,6 @@ NeoBundle 'git://github.com/Shougo/vimshell.git'
 "VimHacksで使われている拡張Markdown
 "NeoBundle 'https://github.com/ujihisa/neco-look.git'
 "NeoBundle 'https://github.com/mattn/wwwrenderer-vim.git'
-"NeoBundle 'https://github.com/mattn/webapi-vim.git'
 "NeoBundle 'https://github.com/t9md/vim-textmanip.git'
 
 "NeoBundle 'project.tar.gz'
