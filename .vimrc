@@ -1,3 +1,23 @@
+"------------------------------
+" auto reload
+"------------------------------
+autocmd!
+augroup AutoReload
+    autocmd!
+augroup END
+
+if !has('gui_running') && !(has('win32') || has('win64'))
+    " .vimrcの再読込時にも色が変化するようにする
+    autocmd AutoReload BufWritePost $MYVIMRC nested source $MYVIMRC
+else
+    " .vimrcの再読込時にも色が変化するようにする
+    autocmd AutoReload BufWritePost $MYVIMRC source $MYVIMRC | \if has('gui_running') | source $MYGVIMRC  
+    autocmd AutoReload BufWritePost $MYGVIMRC if has('gui_running') | source $MYGVIMRC
+endif
+
+"------------------------------
+" options
+"------------------------------
 " no compatible
 set nocompatible
 
@@ -48,18 +68,26 @@ nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>directory_mru<Sp
 nnoremap <silent> ,ua  :Unite<Space>file_rec<CR>
 nnoremap <silent> ,uf  :Unite<Space>file<CR>
 nnoremap <silent> ,ub  :Unite<Space>buffer<CR>
+nnoremap <silent> ,ut  :Unite<Space>tab<CR>
 nnoremap <silent> ,ur  :Unite<Space>register<CR>
 nnoremap <silent> ,tt  :TagbarToggle<CR>
 nnoremap <silent> ,ff  :VimFiler -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
 nnoremap <silent> ,f2  :VimFilerDouble<CR>
 nnoremap <silent> ,ss  :SaveSession<CR>
 nnoremap <silent> ,sr  :RestoreSession<CR>
-nnoremap <silent> ,rc  :tabnew<Space>~/.vimrc<CR>
-nnoremap <silent> ,grc :tabnew<Space>~/.gvimrc<CR>
+nnoremap <silent> ,rc  :tabnew<Space>$MYVIMRC<CR>
+nnoremap <silent> ,grc :tabnew<Space>$MYGVIMRC<CR>
 nnoremap <silent> ,lrc :tabnew<Space>~/.vimrc.local<CR>
 nnoremap <silent> ,rr  :!sudo /etc/init.d/httpd restart<CR>
 nnoremap <silent> ,dd  :VDBIDatasource<CR>
+
 nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <silent> <C-h> 5h
+nnoremap <silent> <C-j> 5j
+nnoremap <silent> <C-k> 5k
+nnoremap <silent> <C-l> 5l
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 
 "------------------------------
 " grep
@@ -67,7 +95,7 @@ nmap     <silent> <Esc><Esc> :nohlsearch<CR><Esc>
 set grepprg=grep\ -nH
 
 "------------------------------
-" Session
+" session
 "------------------------------
 function! s:restore_session()
     source Session.vim
@@ -96,6 +124,7 @@ command! SaveSession    call s:save_session_with_close_plugins()
 "------------------------------
 " xls as csv (csv.vim, xls2csv, xlscat is required)
 "------------------------------
+" xlscat不要にしたい
 augroup XlsAsCsv
     autocmd!
     autocmd BufReadPre *.xls set ro | setf csv
@@ -290,7 +319,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+inoremap <expr><C-t>  neocomplcache#cancel_popup()
 
 " AutoComplPop like behavior.
 "let g:neocomplcache_enable_auto_select = 1
@@ -364,7 +393,8 @@ vmap <Leader>w <Plug>(openbrowser-smart-search)
 "------------------------------
 let g:unite_enable_start_insert = 1
 let g:unite_source_file_mru_limit = 500
-call unite#custom_source('file_rec', 'max_candidates', 500)
+call unite#custom_source('file_rec', 'max_candidates', 0)
+call unite#custom_source('file_rec', 'filters', ['matcher_fuzzy', 'sorter_default', 'converter_default'])
 
 "------------------------------
 " load local setting
@@ -386,5 +416,4 @@ endif
 " irc
 " API
 " twitter
-
 
