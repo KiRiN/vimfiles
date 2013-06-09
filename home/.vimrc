@@ -148,9 +148,10 @@ augroup END
 filetype plugin indent off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle'))
+    set runtimepath+=~/.vim/neobundle.vim/
 endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
 NeoBundle 'git://github.com/vim-scripts/surround.vim.git'
