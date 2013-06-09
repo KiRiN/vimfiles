@@ -1,0 +1,9 @@
+snippet     snippet
+abbr        snippet abbr prev_word <snippet code>
+alias       snip
+prev_word   '^'
+    snippet     ${1:trigger}
+    abbr        ${2:abbr}
+    alias       ${3:alias}
+    prev_word   '^'
+        ${4:snippet code}

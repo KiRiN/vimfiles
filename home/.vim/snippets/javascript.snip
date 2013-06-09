@@ -1,0 +1,82 @@
+#----------------------------------------
+# Jasmine
+#----------------------------------------
+snippet     describe
+abbr        describe <Jasmine>
+alias       desc
+prev_word   '^'
+    describe("${1:something}", function() {
+        ${0:it}
+    });
+
+snippet     it
+abbr        it <Jasmine>
+prev_word   '^'
+    it("${1:behavior}", function() {
+        ${0:expect}
+    });
+
+snippet     expect
+abbr        expect <Jasmine>
+alias       ex, exp
+prev_word   '^'
+    expect(${1:target}).${0}
+
+snippet     toBe
+abbr        toBe <Jasmine>
+alias       tobe
+prev_word   '^'
+    toBe(${0});
+
+snippet     toBeNull
+abbr        toBeNull <Jasmine>
+alias       tobenull
+prev_word   '^'
+    toBeNull();
+
+snippet     toEqual
+abbr        toEqual <Jasmine>
+alias       toequal
+prev_word   '^'
+    toEqual(${0});
+
+snippet     beforeEach
+abbr        beforeEach <Jasmine>
+alias       before
+prev_word   '^'
+    beforeEach(function() {
+        ${0}
+    });
+
+snippet     afterEach
+abbr        afterEach <Jasmine>
+alias       after
+prev_word   '^'
+    afterEach(function() {
+        ${0}
+    });
+
+snippet     any
+abbr        any <Jasmine>
+prev_word   '^'
+    any(${0:class})
+
+snippet     waits
+abbr        waits <Jasmine>
+prev_word   '^'
+    waits(${0:timeout});
+
+snippet     waitsFor
+abbr        waitsFor <Jasmine>
+prev_word   '^'
+    waitsFor(function() {
+        ${0:isCompleted}
+    }, "${1:waiting message}", ${2:timeout});
+
+snippet     runs
+abbr        runs <Jasmine>
+prev_word   '^'
+    runs(function() {
+        ${0}
+    });
+

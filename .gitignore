@@ -24,3 +24,5 @@
 
 # manage by homesick
 !/home
+/home/.vim/.*
+/home/.vim/bundle
