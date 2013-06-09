@@ -1,27 +1,3 @@
-# ignore all
-/*
-/.*
-
-# .vimrc
-!/.vimrc
-# .vim without dotfiles for vim
-!/.vim
-/.vim/bin
-/.vim/.*
-# neobundle
-/.vim/bundle/*
-!/.vim/bundle/neobundle.vim*
-
-# make scripts
-!/Makefile
-!/setup.sh
-!/clean.sh
-
-# settings for git
-!/.gitignore
-!/.gitconfig
-!/.gitmodules
-
 # manage by homesick
 !/home
 /home/.vim/.*
