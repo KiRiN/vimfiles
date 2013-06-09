@@ -1,0 +1,6 @@
+# required homesick installed
+
+# install
+homesick clone https://github.com/KiRiN/vimfiles.git
+homesick symlink vimfiles.git
+
