@@ -22,3 +22,5 @@
 !/.gitconfig
 !/.gitmodules
 
+# manage by homesick
+!/home
