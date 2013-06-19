@@ -61,8 +61,8 @@ set showmatch
 "基本的にカンマ+1文字でカテゴリわけるルール
 "google testとしてcppのときには\tにマッピングするようにしちゃえばよさげ
 nnoremap <silent> ,x   :QuickRun cpp-procon<CR>
-nnoremap <silent> ,nes  :sp +NeoComplCacheEditSnippets<CR>
-nnoremap <silent> ,ners :sp +NeoComplCacheEditRuntimeSnippets<CR>
+nnoremap <silent> ,nes  :sp +NeoSnippetEdit<CR>
+nnoremap <silent> ,ners :sp +NeoSnippetEdit-runtime<CR>
 nnoremap <silent> ,ncb  :NeoComplCacheCachingBuffer<CR>
 nnoremap <silent> ,uu  :Unite<Space>buffer<Space>file_mru<Space>directory_mru<Space>file<CR>
 nnoremap <silent> ,ua  :Unite<Space>file_rec<CR>
@@ -398,6 +398,8 @@ endif
 " Enable snipMate compatibility feature.
 " let g:neosnippet#enable_snipmate_compatibility = 1
 
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 "------------------------------
 " clang_complete
